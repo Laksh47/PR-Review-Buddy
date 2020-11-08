@@ -1,7 +1,5 @@
 # PR-Review-Buddy
 
-## Desc
-
 Pull Requests - Review Buddy, pairs up teammates for PR reviews every sprint.
 
 Uses Github Actions to run the job everyday or every week or every month, depending on the sprint.
