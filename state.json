@@ -1,0 +1,12 @@
+{
+  "teamMembersIDs": {
+    "Aang": "SlackID",
+    "Toph": "SlackID",
+    "Sokka": "SlackID",
+    "Zuko": "SlackID",
+    "Katara": "SlackID"
+  },
+  "previousCaptain": "",
+  "previousBuddies": [],
+  "lastExecutedAt": ""
+}
