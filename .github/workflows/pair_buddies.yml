@@ -1,13 +1,10 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-# Job runs every day of the week, 16:15 UTC or 11:15am ET
+# Job runs at 05:00 UTC on the 31th in Feb :P (Modify the syntax as needed)
 
 name: Pair Buddies for PR Reviews every sprint
 
 on:
   schedule:
-  - cron: "15 16 * * 1-5"
+    - cron: "0 5 31 2 *"
 
 jobs:
   pair_buddies:
@@ -18,26 +15,26 @@ jobs:
         node-version: [10.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install modules
-      run: npm install
-    - name: Run script
-      run: npm run start
-      env:
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-        SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-        JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
-        JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
-    - name: Commit changes to save state
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: PR Review Buddy
-        author_email: prbuddy@freshenv.com
-        message: "Saving current schedule to state.json"
-        add: "*.json"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install modules
+        run: npm install
+      - name: Run script
+        run: npm run start
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          JIRA_TOKEN: ${{ secrets.JIRA_TOKEN }}
+          JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+      - name: Commit changes to save state
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: PR Review Buddy
+          author_email: prbuddy@freshenv.com
+          message: "Saving current schedule to state.json"
+          add: "*.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

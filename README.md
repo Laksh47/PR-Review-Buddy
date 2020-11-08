@@ -2,9 +2,11 @@
 
 ## Desc
 
-Pull Requests - Review Buddy
+Pull Requests - Review Buddy, pairs up teammates for PR reviews every sprint.
 
-Pairs up teammates for PR reviews every sprint
+Uses Github Actions to run the job everyday or every week or every month, depending on the sprint.
+
+Currently, the action is set to run at 05:00 UTC on the 31th in Feb. (Basically never :P)
 
 Basic API calls to JIRA and Slack
 
@@ -12,7 +14,7 @@ Basic API calls to JIRA and Slack
 
 - run `npm install` to install modules
 
-- export env variables from terminal, for jira and slack API calls
+- export env variables from terminal, for jira and slack API calls. (Use Github secrets for this to work in Github Actions)
 
 ```
 export SLACK_TOKEN=xxx
