@@ -6,7 +6,16 @@
     "Zuko": "SlackID",
     "Katara": "SlackID"
   },
-  "previousCaptain": "",
-  "previousBuddies": [],
-  "lastExecutedAt": ""
+  "previousCaptain": "Aang",
+  "previousBuddies": [
+    [
+      "Sokka",
+      "Toph"
+    ],
+    [
+      "Katara",
+      "Zuko"
+    ]
+  ],
+  "lastExecutedAt": "2020-11-08T15:46:14.332Z"
 }
